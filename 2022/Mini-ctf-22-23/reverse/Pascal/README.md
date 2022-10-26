@@ -1,0 +1,2 @@
+# Pascal XOR flag crypting
+> It's a simple CTF challenge where I create a string by XORing the flag with a certain key that has the same size as the flag obviously, and then the player has to apply the reversed function which is decoding the xor and it's very simple.
