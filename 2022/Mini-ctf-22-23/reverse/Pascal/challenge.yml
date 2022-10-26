@@ -1,0 +1,34 @@
+name: "Pascal yeah!"
+author: "4m1n3"
+
+category: reverse
+difficulty: easy
+
+description: |
+  > My program gets the flag and then it gives me a string where the flag is hidden, 
+  you can find it in the file **hiddenflag**
+  You have to find the flag that I gave to my program in order to get the string in **hiddenflag** as an input.
+  > If you are having compilations issues when executing the code in your machine
+   try execute it here: https://www.onlinegdb.com/online_pascal_compiler
+  **Author** : 4m1ne
+value: 100
+type: standard
+
+flags:
+  - shellmates{A$A_P4sc4l_R3v3RseD}
+
+tags:
+  - Reverse
+  - XOR
+
+hints:
+  - write a code that does the opposite work of this one so that you can find the flag
+  - Check this link: shorturl.at/ltu69
+
+files:
+  - ./hiddenflag
+  - ./code.pas
+
+state: visible
+
+version: "0.1"
