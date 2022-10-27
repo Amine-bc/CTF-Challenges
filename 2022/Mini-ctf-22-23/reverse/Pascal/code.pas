@@ -1,5 +1,5 @@
 Program hideflag ;
-uses StrUtils,SysUtils ;
+uses StrUtils ;
 Const key='reLkEgmtWUKJihEdOvHbgKhioPfaqw' ;
 Const password='113417411012050384811774126521235438611205890259952182051125';
 //--------Main--------//
