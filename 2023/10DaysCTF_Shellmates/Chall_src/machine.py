@@ -61,7 +61,7 @@ class machine():
         return self.__generalpurpose
     
     def retmachine(self):
-        return {'MC': json.dumps(self.__MC), 'r1': self.__r1.reg_read(), 'r2': self.__r2.reg_read(), 'r3': self.__r3.reg_read() }
+        return {'name': 'flagmachine','MC': json.dumps(self.__MC), 'r1': self.__r1.reg_read(), 'r2': self.__r2.reg_read(), 'r3': self.__r3.reg_read() }
         
 
 
@@ -119,7 +119,7 @@ def machineoperation():
     for i in cpu1.getregs():
         print(i.reg_read())
 
-    json.dump(cpu1.retmachine(),open("cpu1.json","w"))
+    json.dump(cpu1.retmachine(),open("Chall_src/flagmachine.json","w"))
 
 
 
