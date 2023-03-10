@@ -83,20 +83,19 @@ def machineoperation():
     cpu1 = machine("cpu1_machine")
     print(cpu1.name)
     buf =Buffer()
-    buf.buffer_load("123456789abcdefghijkl")
+    buf.buffer_load("flag{cpu_hack_is_fun}")
 
     datain = buf.buffer_dump()
     print(datain)
     dataascii = []
 
-    #for i in datain:
-    #    dataascii.append(hex(ord(i)))
-    
-    print(datain)
-
     for i in datain:
-        dataascii.append(i)
+        dataascii.append(hex(ord(i)))
+    
+    
 
+
+    print(datain)
     print(dataascii)
 
 
@@ -110,11 +109,6 @@ def machineoperation():
         else:
             cpu1.registerslct(21-i).reg_write(dataascii[i])
 
-
-   
-
-
-    
 
     print(cpu1.MC_dump())
 
