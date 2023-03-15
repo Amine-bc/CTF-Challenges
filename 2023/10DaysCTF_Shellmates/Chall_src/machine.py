@@ -1,4 +1,4 @@
-import json
+import json, random
 
 class register():
     __value = 0
@@ -21,9 +21,11 @@ class machine():
     __r1 = register()
     __r2 = register()
     __r3 = register()
+    __r4 = register()
     __generalpurpose =[__r1,__r2,__r3]
     def __init__(self,name):
         self.name = name
+        self.__MC = [hex(random.randint(0,100)) for i in range(100)]
 
     def MC_write_data(self,addr,data):
         if addr < self.stackptr or addr > self.s_seg:
@@ -59,9 +61,11 @@ class machine():
             return None
     def getregs(self):
         return self.__generalpurpose
+    def setr4(self,data):
+        self.__r4.reg_write(data)
     
     def retmachine(self):
-        return {'name': 'flagmachine','MC': json.dumps(self.__MC), 'r1': self.__r1.reg_read(), 'r2': self.__r2.reg_read(), 'r3': self.__r3.reg_read() }
+        return {'name': 'flagmachine','MC': json.dumps(self.__MC), 'r1': self.__r1.reg_read(), 'r2': self.__r2.reg_read(), 'r3': self.__r3.reg_read(), 'r4': self.__r4.reg_read() }
         
 
 
@@ -78,6 +82,24 @@ class Buffer:
 
 
 
+def codingfunc(chars):
+    # Initialize the MSB list with zeros
+    msb = [0] * len(chars)
+
+    # Convert each character to its integer value and shift it
+    for i, char in enumerate(chars):
+        shifted_value = int(char,16) >> 1
+        msb[i] = (int(char,16) & 1)  # Extract the MSB before shift
+        chars[i] = hex(shifted_value)
+
+    # Return the shifted chars and MSB as a tuple
+    return msb, chars
+
+
+def list_to_binary(lst):
+    binary_str = ''.join(str(bit) for bit in lst)
+    binary_int = int(binary_str, 2)
+    return binary_int
 
 
 #flag{cpu_hack_is_fun} #21 char 
@@ -94,17 +116,22 @@ def machineoperation():
 
     for i in datain:
         dataascii.append(hex(ord(i)))
-    
-    
-
+        
 
     print(datain)
     print(dataascii)
 
+    f8b = dataascii[0:8]
+    lsb, f8b = codingfunc(f8b)
+    print(f8b)
+    print(lsb)
+    lsb = list_to_binary(lsb)
+    lsb = hex(lsb)
+    cpu1.setr4(lsb)
 
     for i in range(21):
         if i < 7:
-            cpu1.MC_Stack_push(dataascii[i])
+            cpu1.MC_Stack_push(f8b[i])
         elif i < 14:
             cpu1.MC_write_data(i-7,dataascii[i])
         elif i < 18:

@@ -4,5 +4,5 @@
 
 ## Let the work begin !
 #### First I tought to create an IOT ctf but I hadn't enough knowledge for that, and I needed some hardware materials.
-#### Then since I was working on emulating a cpu architecture machine I tought of creating a ctf tackling memory management in a cpu.
+#### Then since I was working on emulating a cpu architecture machine I tought of creating a ctf tackling memory management in a cpu, I would say it's a reverse ctf.
 
