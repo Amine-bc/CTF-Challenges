@@ -108,7 +108,7 @@ def machineoperation():
     cpu1 = machine("cpu1_machine")
     print(cpu1.name)
     buf =Buffer()
-    buf.buffer_load("flag{5pu_h4ck_1es_F4n}")
+    buf.buffer_load("shellmates{5pu_h4ck_1es_F4n}")
 
     datain = buf.buffer_dump()
     print(datain)

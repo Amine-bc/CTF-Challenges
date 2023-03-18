@@ -1,0 +1,54 @@
+# NOTE: carefully read the comments
+#
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# Required sections
+#
+name: "CPU-reverse"
+author: "4m1n3"
+author_link: "author website or github link"
+# Challenge category (pwn, web, reverse, crypto, forensics, linux, programming, misc)
+category: reverse, misc
+# Challenge difficulty (easy, ezmed, medium, medhard, hard, extreme)
+difficulty: medium or easy
+# Challenge description goes here
+# You can write markdown in it
+# Notes:
+# - for multi-line descriptions, make sure to add 2 spaces at the end of each line so that descriptions are actually displayed in multiple lines
+# - make sure to prepend the description with ">"
+# - always add the author line in the description (because CTFd doesn't add the author in the challenge description)
+description: |
+  > it's a reverse ctf, where you have to figure out how this cpu is managing the data coming in and how it's organizing it in its memory.
+  
+  **Author** : Author Name
+flags: shellmates{5pu_h4ck_1!s_F@n}
+
+
+topics:
+  - Reverse
+  - Computer architecture
+
+# Tags are used to provide additional public tagging to a challenge
+# Can be removed if unused
+# Accepts strings
+tags:
+  - reverse
+  - CPU
+
+# Files to be uploaded alongside the challenge in CTFd
+# These paths are relative to the same directory where the challenge.yml file is.
+files:
+  - ./machine.py
+  - ./flagmachine.json
+
+# DO NOT CHANGE
+#
+value: 500
+type: dynamic
+extra:
+    initial: 500
+    decay: 15
+    minimum: 50
+state: hidden
+version: "0.1"
