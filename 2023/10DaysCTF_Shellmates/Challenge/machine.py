@@ -108,7 +108,7 @@ def machineoperation():
     cpu1 = machine("cpu1_machine")
     print(cpu1.name)
     buf =Buffer()
-    buf.buffer_load("flag{cpu_hack_is_fun}")
+    buf.buffer_load("flag{5pu_h4ck_1es_F4n}")
 
     datain = buf.buffer_dump()
     print(datain)
@@ -123,8 +123,8 @@ def machineoperation():
 
     f8b = dataascii[0:8]
     lsb, f8b = codingfunc(f8b)
-    print(f8b)
-    print(lsb)
+    #print(f8b)
+    #print(lsb)
     lsb = list_to_binary(lsb)
     lsb = hex(lsb)
     cpu1.setr4(lsb)
@@ -140,13 +140,13 @@ def machineoperation():
             cpu1.registerslct(21-i).reg_write(dataascii[i])
 
 
-    print(cpu1.MC_dump())
+    #print(cpu1.MC_dump())
 
 
     for i in cpu1.getregs():
         print(i.reg_read())
 
-    json.dump(cpu1.retmachine(),open("Chall_src/flagmachine.json","w"))
+    json.dump(cpu1.retmachine(),open("Challenge/flagmachine.json","w"))
 
 
 
